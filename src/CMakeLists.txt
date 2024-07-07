@@ -19,6 +19,7 @@ function(add_tinyusb TARGET)
     ${CMAKE_CURRENT_FUNCTION_LIST_DIR}/class/dfu/dfu_rt_device.c
     ${CMAKE_CURRENT_FUNCTION_LIST_DIR}/class/hid/hid_device.c
     ${CMAKE_CURRENT_FUNCTION_LIST_DIR}/class/midi/midi_device.c
+    ${CMAKE_CURRENT_FUNCTION_LIST_DIR}/class/ump/ump_device.cpp
     ${CMAKE_CURRENT_FUNCTION_LIST_DIR}/class/msc/msc_device.c
     ${CMAKE_CURRENT_FUNCTION_LIST_DIR}/class/net/ecm_rndis_device.c
     ${CMAKE_CURRENT_FUNCTION_LIST_DIR}/class/net/ncm_device.c

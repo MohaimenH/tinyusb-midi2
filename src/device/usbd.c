@@ -188,6 +188,19 @@ tu_static usbd_class_driver_t const _usbd_driver[] = {
     },
     #endif
 
+    #if CFG_TUD_UMP
+    {
+        .name             = DRIVER_NAME("UMP"),
+        .init             = umpd_init,
+        .deinit           = NULL,
+        .open             = umpd_open,
+        .reset            = umpd_reset,
+        .control_xfer_cb  = umpd_control_xfer_cb,
+        .xfer_cb          = umpd_xfer_cb,
+        .sof              = NULL
+    },
+    #endif
+
     #if CFG_TUD_VENDOR
     {
         .name             = DRIVER_NAME("VENDOR"),
@@ -987,6 +1000,10 @@ static bool process_set_config(uint8_t rhport, uint8_t cfg_num)
 
           #if CFG_TUD_MIDI
           if ( driver->open == midid_open ) assoc_itf_count = 2;
+          #endif
+
+          #if CFG_TUD_UMP
+          if ( driver->open == umpd_open ) assoc_itf_count = 2;
           #endif
 
           #if CFG_TUD_BTH && CFG_TUD_BTH_ISO_ALT_COUNT

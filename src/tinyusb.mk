@@ -11,6 +11,7 @@ TINYUSB_SRC_C += \
 	src/class/dfu/dfu_rt_device.c \
 	src/class/hid/hid_device.c \
 	src/class/midi/midi_device.c \
+	src/class/ump/ump_device.cpp \
 	src/class/msc/msc_device.c \
 	src/class/net/ecm_rndis_device.c \
 	src/class/net/ncm_device.c \

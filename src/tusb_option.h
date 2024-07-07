@@ -419,6 +419,10 @@
   #define CFG_TUD_MIDI            0
 #endif
 
+#ifndef CFG_TUD_UMP
+  #define CFG_TUD_UMP             0
+#endif
+
 #ifndef CFG_TUD_VENDOR
   #define CFG_TUD_VENDOR          0
 #endif

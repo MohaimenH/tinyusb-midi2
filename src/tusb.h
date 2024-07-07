@@ -96,6 +96,10 @@
     #include "class/midi/midi_device.h"
   #endif
 
+  #if CFG_TUD_UMP
+    #include "class/ump/ump_device.h"
+  #endif
+
   #if CFG_TUD_VENDOR
     #include "class/vendor/vendor_device.h"
   #endif

@@ -1654,6 +1654,17 @@ static bool _parse_configuration_descriptor(uint8_t dev_addr, tusb_desc_configur
     }
 #endif
 
+#if CFG_TUH_UMP
+    // MIDI has 2 interfaces (Audio Control v1 + MIDIStreaming) but does not have IAD
+    // manually force associated count = 2
+    if (1                              == assoc_itf_count              &&
+        TUSB_CLASS_AUDIO               == desc_itf->bInterfaceClass    &&
+        AUDIO_SUBCLASS_CONTROL         == desc_itf->bInterfaceSubClass &&
+        AUDIO_FUNC_PROTOCOL_CODE_UNDEF == desc_itf->bInterfaceProtocol) {
+      assoc_itf_count = 2;
+    }
+#endif
+
 #if CFG_TUH_CDC
     // Some legacy CDC device does not use IAD but rather use device class as hint to combine 2 interfaces
     // manually force associated count = 2
